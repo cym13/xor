@@ -52,15 +52,15 @@ int main(string[] args) {
             write(helpMsg);
             return 0;
         }
+        if (args.length == 1) {
+            write(helpMsg);
+            return 1;
+        }
     } catch (GetOptException ex) {
         stderr.write(helpMsg);
         return 1;
     }
 
-    if (args.length == 1) {
-        write(helpMsg);
-        return 1;
-    }
     auto files = args[1..$].map!(p => File(p)).array;
 
     auto limit = files.map!(f => f.size).fold!max;

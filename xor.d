@@ -24,7 +24,7 @@ Options:
     -o, --output FILE   Write output to FILE ; default: stdout
 ";
 
-immutable vernum="0.1.0";
+immutable vernum="1.0.0";
 
 
 int main(string[] args) {

@@ -32,7 +32,7 @@ int main(string[] args) {
 
     string[] filePaths;
     string   xorString;
-    string   outPath = "-";
+    string   outPath;
 
     try {
         bool versionWanted;
@@ -61,9 +61,7 @@ int main(string[] args) {
         write(helpMsg);
         return 1;
     }
-
-    auto files = args[1..$].map!(p => p == "-" ? stdin : File(p))
-                           .array;
+    auto files = args[1..$].map!(p => File(p)).array;
 
     auto limit = files.map!(f => f.size).fold!max;
 

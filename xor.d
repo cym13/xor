@@ -69,10 +69,10 @@ int main(string[] args) {
                                          .joiner
                                          .chain(repeat('\0')));
 
-    auto outBuffer = new char[limit];
+    auto outBuffer = new ubyte[limit];
 
     if (xorString && xorString != "")
-        outBuffer[] = xorString.repeat.joiner.take(limit).array.to!(char[]);
+        outBuffer[] = xorString.repeat.joiner.take(limit).array.to!(ubyte[]);
     else
         outBuffer[] = 0;
 

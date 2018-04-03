@@ -73,10 +73,15 @@ int main(string[] args) {
 
     auto outBuffer = new char[limit];
 
+    if (xorString && xorString != "")
+        outBuffer[] = xorString.repeat.joiner.take(limit).array.to!(char[]);
+    else
+        outBuffer[] = 0;
+
     for (ulong i ; i<limit ; i++)
-        outBuffer[i] = filesContent.frontTransversal
-                                   .map!(to!ubyte)
-                                   .fold!((a,b) => cast(ubyte)(a^b));
+        outBuffer[i] ^= filesContent.frontTransversal
+                                    .map!(to!ubyte)
+                                    .fold!((a,b) => cast(ubyte)(a^b));
 
     File outFile = outPath == "-" ? stdout : File(outPath, "w");
     outFile.rawWrite(outBuffer);

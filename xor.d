@@ -81,7 +81,11 @@ int main(string[] args) {
                                     .map!(to!ubyte)
                                     .fold!((a,b) => cast(ubyte)(a^b));
 
-    File outFile = outPath == "-" ? stdout : File(outPath, "w");
+    File outFile = stdout;
+
+    if (outPath != "-" && outPath != "")
+        outFile = File(outPath, "w");
+
     outFile.rawWrite(outBuffer);
     return 0;
 }

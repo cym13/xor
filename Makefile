@@ -1,8 +1,11 @@
+CC=ldmd
+CFLAGS=-release -O -inline
 
 all: xor
 
 %: %.d
-	ldmd -release -O -inline $<
+	$(CC) $(CFLAGS) $<
+	strip $@
 
 clean:
 	rm xor *.o

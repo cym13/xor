@@ -72,7 +72,7 @@ int main(string[] args) {
     auto outBuffer = new ubyte[limit];
 
     if (xorString && xorString != "")
-        outBuffer[] = xorString.repeat.joiner.take(limit).array.to!(ubyte[]);
+        outBuffer[] = (cast(ubyte[])xorString).repeat.joiner.take(limit).array;
     else
         outBuffer[] = 0;
 

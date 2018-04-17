@@ -136,8 +136,12 @@ int main(int argc, char *argv[])
 
     FILE** input_files = calloc(argc - optind + 1, sizeof(FILE*));
 
-    for (size_t i=0 ; options.files[i] != NULL ; i++)
-        input_files[i] = fopen(options.files[i], "r");
+    for (size_t i=0 ; options.files[i] != NULL ; i++) {
+        if ((input_files[i] = fopen(options.files[i], "r")) == NULL) {
+            printf("%s\n", strerror(errno));
+            return 1;
+        }
+    }
 
     size_t limit = 0;
     for (size_t i=0 ; input_files[i] != NULL ; i++) {

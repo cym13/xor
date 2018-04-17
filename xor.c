@@ -24,7 +24,7 @@ static const char help_msg[] =
     "    -s, --string STR    XOR against fixed, repeated string\n"
     "    -o, --output FILE   Write output to FILE ; default: stdout";
 
-static const char vernum[] = "0.1.0";
+static const char vernum[] = "2.0.0";
 
 typedef struct {
     bool   string;

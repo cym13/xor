@@ -24,7 +24,7 @@ Options:
     -o, --output FILE   Write output to FILE ; default: stdout
 ";
 
-immutable vernum="3.0.0";
+immutable vernum="3.0.1";
 
 
 int main(string[] args) {
@@ -65,7 +65,7 @@ int main(string[] args) {
 
     auto limit = files.map!(f => f.size).fold!max;
 
-    immutable bufsize = 4096;
+    immutable bufsize = 32768;
 
     ubyte[bufsize] inBuffer;
     ubyte[bufsize] outBuffer;

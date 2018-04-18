@@ -1,9 +1,9 @@
-CC=gcc
-CFLAGS=-O4 -Wall
+CC=ldc2
+CFLAGS=-O -enable-inlining -Hkeep-all-bodies
 
 all: xor
 
-%: %.c
+%: %.d
 	$(CC) $(CFLAGS) -o $@ $<
 	strip $@
 

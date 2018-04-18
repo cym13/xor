@@ -4,7 +4,7 @@ CFLAGS=-O -enable-inlining -Hkeep-all-bodies
 all: xor
 
 %: %.d
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -of$@ $<
 	strip $@
 
 clean:

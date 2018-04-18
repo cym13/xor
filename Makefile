@@ -8,4 +8,4 @@ all: xor
 	strip $@
 
 clean:
-	rm xor
+	rm xor *.o

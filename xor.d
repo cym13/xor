@@ -24,7 +24,7 @@ Options:
     -o, --output FILE   Write output to FILE ; default: stdout
 ";
 
-immutable vernum="3.0.1";
+immutable vernum="3.0.2";
 
 
 int main(string[] args) {
@@ -49,7 +49,7 @@ int main(string[] args) {
             return 0;
         }
         if (versionWanted) {
-            write(helpMsg);
+            writeln(vernum);
             return 0;
         }
         if (args.length == 1) {
